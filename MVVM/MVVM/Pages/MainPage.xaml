@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Pages.MainPage" Title="Main."
+             BackgroundColor="{StaticResource backgroundColor}">
+
+    <Label
+        Text="Main Page"
+        TextColor="{StaticResource fontColor}"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"></Label>
+
+<ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_add.png"></ToolbarItem>
+</ContentPage.ToolbarItems>
+
+</ContentPage>

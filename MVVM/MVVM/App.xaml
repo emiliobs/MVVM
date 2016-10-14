@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- General color-->
+            <Color x:Key="mainColor">#ff3b77</Color>
+            <Color x:Key="fontColor">#52656b</Color>
+            <Color x:Key="accentColor1">#cdff00</Color>
+            <Color x:Key="accentColor2">#b8b89f</Color>
+            <Color x:Key="backgroundColor">#f9f9f9</Color>
+
+            <!-- Menú color-->
+            <Color x:Key="menuBackgroudColor">#52656b</Color>
+            <Color x:Key="menufontColor">#ffffff</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+
+
+</Application>
