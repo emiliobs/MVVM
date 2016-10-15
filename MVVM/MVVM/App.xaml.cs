@@ -19,7 +19,7 @@ namespace MVVM
             // The root page of your application
 
 
-            MainPage = new MasterPage();
+            MainPage = new WelcomePage();
         }
 
         protected override void OnStart()

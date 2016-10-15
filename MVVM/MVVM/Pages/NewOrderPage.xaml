@@ -14,9 +14,7 @@
         <Label TextColor="{StaticResource fontColor}" Text="Fecha de Entrega"></Label>
         <DatePicker BackgroundColor="{StaticResource MenufontColor}"></DatePicker>
         <Button HeightRequest="50"
-                BorderRadius="25"
-                BackgroundColor="{StaticResource mainColor}"
-                TextColor="{StaticResource MenufontColor}"
+
                 Text="Guardar."></Button>
     </StackLayout>
 </ScrollView>

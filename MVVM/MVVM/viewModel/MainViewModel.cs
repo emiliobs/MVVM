@@ -103,6 +103,19 @@ namespace MVVM.viewModel
            NavigationService.Navigate(pageName);
         }
 
+        public ICommand StartCommand
+        {
+            get
+            {
+                return  new RelayCommand(Start);
+            }
+        }
+
+        private void Start()
+        {
+            NavigationService.SetMainPage();
+        }
+
         #endregion
 
     }

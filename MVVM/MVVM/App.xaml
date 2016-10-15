@@ -20,6 +20,44 @@
             <!--Locator-->
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
 
+            <!--Fonts-->
+            <OnPlatform x:Key="GeneralButtonFont" x:TypeArguments="Font" iOS="12" Android="14" WinPhone="16"></OnPlatform>
+
+            <!-- Styles -->
+            <Style TargetType="Button">
+                <Setter Property="Font" Value="{StaticResource GeneralButtonFont}"/>
+                <Setter Property="BorderRadius" Value="25"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource  accentColor1}"/>
+                <Setter Property="TextColor" Value="{StaticResource fontColor}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+
+            <!--Dta Templates-->
+            <DataTemplate x:Key="OrdrItemTemplate">
+                <ViewCell>
+                    <Grid Padding="8">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition  Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="icon.png" VerticalOptions="Start" WidthRequest="50" HeightRequest="50"></Image>
+                        <StackLayout Grid.Column="1">
+                            <Label FontAttributes="Bold"
+                                   VerticalOptions="Center"
+                                   TextColor="{StaticResource fontColor}"
+                                   Text="{Binding Title}"></Label>
+                            <Label VerticalOptions="Center" TextColor="{StaticResource fontColor}" Text="{Binding Description}"></Label>
+                            <Label VerticalOptions="Center"
+                                   TextColor="{StaticResource mainColor}"
+                                   Text="{Binding DeliveryDate ,StringFormat='{0:dd/MM/yyyy}'}"></Label>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 
