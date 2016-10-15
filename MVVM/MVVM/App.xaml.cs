@@ -10,6 +10,7 @@ namespace MVVM
     public partial class App : Application
     {
         public static NavigationPage Navigation { get; internal set; }
+        public static MasterPage Master { get; set; }
 
         public App()
         {

@@ -10,6 +10,7 @@
             <DataTemplate>
                 <ViewCell>
                     <Grid Padding="8">
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition  Width="*"></ColumnDefinition>
@@ -32,7 +33,7 @@
     </ListView>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="ic_action_add.png"></ToolbarItem>
+        <ToolbarItem Icon="ic_action_add.png" Command="{Binding GoToCommand}" CommandParameter="NewOrderPage"></ToolbarItem>
     </ContentPage.ToolbarItems>
 
 </ContentPage>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 x:Class="MVVM.Pages.MenuPage"
-			 BackgroundColor="{StaticResource menuBackgroudColor}"
-			 Title="Menú."
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM.Pages.MenuPage"
+             BackgroundColor="{StaticResource menuBackgroudColor}"
+             Title="Menú."
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
 
     <ListView ItemsSource="{Binding Menu}" HasUnevenRows="True">
@@ -11,6 +11,9 @@
             <DataTemplate>
                 <ViewCell>
                     <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateCommand}"></TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
