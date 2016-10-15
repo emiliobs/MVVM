@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using MVVM.Pages;
+using MVVM.Service;
 
 namespace MVVM.viewModel
 {
     public class MainViewModel
     {
+        #region Attributes
+
+        private NavigationService NavigationService;
+        #endregion
 
         #region Properties
         public ObservableCollection<OrderViewModel> Orders { get; set; }
@@ -23,6 +28,7 @@ namespace MVVM.viewModel
         public MainViewModel()
         {
             Menu = new ObservableCollection<MenuItemViewModel>();
+            NavigationService = new NavigationService();
 
             LoadMenu();
             LoadFakeData();
@@ -91,17 +97,10 @@ namespace MVVM.viewModel
             }
         }
 
+
         private void GoTo(string pageName)
         {
-            switch (pageName)
-            {
-                case "NewOrderPage":
-                    App.Navigation.PushAsync(new NewOrderPage());
-                    break;
-
-                default:
-                    break;
-            }
+           NavigationService.Navigate(pageName);
         }
 
         #endregion
