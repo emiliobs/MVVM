@@ -17,21 +17,27 @@ namespace MVVM.viewModel
         #region Attributes
 
         private NavigationService NavigationService;
+        private ApiService apiService;
+
         #endregion
 
         #region Properties
         public ObservableCollection<OrderViewModel> Orders { get; set; }
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
+        public OrderViewModel NewOrder { get; set; }
         #endregion
 
         #region Constructors
         public MainViewModel()
         {
             Menu = new ObservableCollection<MenuItemViewModel>();
+            Orders = new ObservableCollection<OrderViewModel>();
+
             NavigationService = new NavigationService();
+            apiService = new ApiService();
 
             LoadMenu();
-            LoadFakeData();
+            //LoadFakeData();
         }
         #endregion
 
@@ -100,8 +106,20 @@ namespace MVVM.viewModel
 
         private void GoTo(string pageName)
         {
+
+            switch (pageName)
+            {
+                case "NewOrderPage":
+                    NewOrder = new OrderViewModel();
+                    break;
+
+                default:
+                    break;
+            }
            NavigationService.Navigate(pageName);
         }
+
+
 
         public ICommand StartCommand
         {
@@ -111,9 +129,31 @@ namespace MVVM.viewModel
             }
         }
 
-        private void Start()
+        private async void Start()
         {
+
+            var orders = await apiService.GetAllOrders();
+
+            Orders.Clear();
+
+            foreach (var order in orders)
+            {
+                Orders.Add(new OrderViewModel
+                {
+                    Client = order.Client,
+                    CreationDate = order.CreationDate,
+                    DeliveryDate = order.DeliveryDate,
+                    DeliveryInformation = order.DeliveryInformation,
+                    Description = order.Description,
+                    Id =  order.Id,
+                    IsDelivered = order.IsDelivered,
+                    Phone =order.Phone,
+                    Title =  order.Title
+                });
+            }
+
             NavigationService.SetMainPage();
+
         }
 
         #endregion
